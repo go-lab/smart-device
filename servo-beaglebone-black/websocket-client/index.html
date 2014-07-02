@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="WebsocketClient">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi"/>
+
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slider.css"/>
+    <title>BBB Servo Web Client</title>
+</head>
+
+<body>
+<h2 class="text-center">BBB Servo Web Client</h2>
+<hr/>
+<section ng-controller="WebSocketController" class="text-center">
+    <strong ng-bind-template="Server Response: {{message}}"></strong>
+    <br/>
+
+    <div class="container">
+        <strong class="pad-right">Servo</strong>
+        <input type="text"
+               class="slider span2"
+               value=""
+               data-slider-min="2500"
+               data-slider-max="4800"
+               data-slider-step="100"
+               data-slider-value="2500"
+               data-slider-orientation="horizontal"
+               data-slider-selection="after"
+               data-slider-tooltip="hide"/>
+        <strong class="pad-left" ng-bind='servoValue'></strong>
+    </div>
+
+<div class="container">
+    <button class="btn" ng-click="servoOn()">
+        Servo On
+    </button>
+    <button class="btn btn-danger" ng-click="servoOff()">
+        Servo OFF
+    </button>
+</div>
+</section>
+
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript" src="js/lib/angular.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap.js"></script>
+<script type="text/javascript" src="js/lib/modernizr-latest.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap-slider.js"></script>
+<script type="text/javascript" src="js/app/web-socket-controller.js"></script>
+<script type="text/javascript" src="js/app/app.js"></script>
+
+</body>
+</html>
+
