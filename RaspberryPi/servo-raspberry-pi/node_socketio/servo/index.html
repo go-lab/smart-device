@@ -1,0 +1,90 @@
+<html>
+<!--/**
+* Author: German Carro Fernandez
+* DIEEC, UNED
+*/ -->
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		Raspberry Pi Servo with Arduino
+	</title>
+
+<script src="../../modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
+<script  type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+<script src="style/slider/js/bootstrap-slider.js"></script>
+<script src="style/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+<link href="style/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="style/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+ <link href="style/slider/css/slider.css" rel="stylesheet">  
+  <link href="style/slider/less/slider.less" rel="stylesheet">  
+
+<script>
+var value=0;
+$(document).ready(function() {
+$('#ex1').slider({
+formater:function (valuefin) {
+value=valuefin;
+return 'Current value: ' + valuefin;
+}
+});});	
+</script>
+<style>#ex1Slider .slider-selection {
+background: #BABABA;
+}
+</style>
+
+   </head>
+<body>
+        
+    
+    <script>
+	var jsonObj = {"Servo":"Active", "Position":"Waiting..."};
+	var headerItem;
+	var socket = io.connect('http://192.168.1.42:8020'); //Pon la IP de tu Raspberry Pi.
+	
+	function envia(){
+	socket.emit('clickon', value);
+	
+	};
+	function apaga(){
+	socket.emit('clickoff', value);
+	};
+	
+	$(document).ready(function(){
+    	
+  	var header = $('#header');
+	var button = $('#onoff');
+	var button = $('#off');
+	var container = $('#container');
+	socket.on('dataled', function (time, data) {
+			var newItem = $('<div>Position: ' + time +', '+value+ '.'+'<br></div>');
+			container.append(newItem); 
+			jsonObj.Position = time;
+			jsonObj.Temperatura = data;
+			headerItem = $('<div>'+JSON.stringify(jsonObj)+ '<br></div>');
+			header.append(headerItem);
+			document.getElementById('header').innerHTML = '<div>'+JSON.stringify(jsonObj)+ '<br></div>';
+			
+	});
+	});
+</script>
+
+	<strong>Emulation JSON content<br>
+	(real time changes):</strong>
+	<div id="header">
+	</div>
+	<div align= "center">
+	<button type="button" id="onoff" onclick="envia()">Move Servo</button>
+	<br><br>
+	<br>
+	<input id="ex1" data-slider-id="ex1Slider" type="text" data-slider-min="0" data-slider-max="180" data-slider-step="1" data-slider-value=" " ></div>
+	<br><br><br></div>
+	<br>
+	<br><br>
+	<strong>Emulation batch content<br>
+	(real time changes):</strong>
+	<div id="container">
+	</div>
+</body>
+</html>
