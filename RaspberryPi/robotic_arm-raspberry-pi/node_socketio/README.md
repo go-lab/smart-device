@@ -1,6 +1,7 @@
 Content and services description
 ================================
-This is the main folder of the system. The "robotic_arm" folder contents the main files for server and client side, needed to use this source code with the laboratory.
+This is the main folder of the system. The "robotic_arm" folder contents the main files for server and client side, needed to use this source code with the laboratory.<br>
+On server and client side remember change the IP and PORT as example for your Raspberry Pi IP and PORT, into the server.js file and into the all XXXX.html files header paths and bodies.<br>
 Into this folder you can find:
 
 - Server side:<br> 
