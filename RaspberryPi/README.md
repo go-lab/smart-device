@@ -2,7 +2,7 @@ Laboratories
 ============
 On this folder you can find the laboratories developed with Raspberry Pi and Arduino UNO board.<br>
 Currently you can use the Robotic Arm Laboratory downloading the files of the folder "robotic_arm-raspberry-pi".<br>
-The other labotories are in development phase so they are not available yet.<br>
+The other laboratories are in development phase so they are not available yet.<br>
 
 Warning
 =======
