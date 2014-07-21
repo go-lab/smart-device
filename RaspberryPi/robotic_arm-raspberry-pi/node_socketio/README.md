@@ -14,14 +14,13 @@ Into this folder you can find:
   The client side files must be loaded into the Apache server of the PC desktop.<br>
   Into the client side files you can find two sections:<br>
   1.- Bootstrap and slider style libraries. Into the "style" folder you have the files needed to use the style libraries from Bootstrap and the style files developed for the slider. You can find these folders with the name "bootstrap-3.1.1-dist" and "slider".<br>
-  2.- The services files. On this folder you can find each of services available to use. All of them work with the same interface. You have to move a slider and when you have decided the position you have to clinck on the button to send the information to the websocket channel to Raspberry Pi. See the Wiki for more information (https://github.com/go-lab/smart-device/wiki/Robotic-Arm-Laboratory).<br>
-  A brief description of each service is offered below:<br>
-    a) base.html: let to control the base DC motor of Robotic Arm moving it to left or rigth.<br>
-    b) clamp.html: let to control the clamp of Robotic Arm closing or opening.<br>
-    c) elbow.html: let to control the elbow DC motor of Robotic Arm moving it to forward or backward.<br>
-    d) led.html: let to control the led of Robotic Arm tirn on or turn off.<br>
-    e) shoulder.html: let to control the shoulder DC motor of Robotic Arm moving it to forward or backward.<br>
-    f) wrist.html: let to control the wrist DC motor of Robotic Arm moving it to forward or backward.<br>
+  2.- The services files. On this folder you can find each of services available to use. All of them work with the same interface. You have to move a slider and when you have decided the position you have to clinck on the button to send the information to the websocket channel to Raspberry Pi. See the Wiki for more information (https://github.com/go-lab/smart-device/wiki/Robotic-Arm-Laboratory). A brief description of each service is offered below:<br>
+      a) base.html: let to control the base DC motor of Robotic Arm moving it to left or rigth.<br>
+      b) clamp.html: let to control the clamp of Robotic Arm closing or opening.<br>
+      c) elbow.html: let to control the elbow DC motor of Robotic Arm moving it to forward or backward.<br>
+      d) led.html: let to control the led of Robotic Arm tirn on or turn off.<br>
+      e) shoulder.html: let to control the shoulder DC motor of Robotic Arm moving it to forward or backward.<br>
+      f) wrist.html: let to control the wrist DC motor of Robotic Arm moving it to forward or backward.<br>
 
 Communication process
 =====================
