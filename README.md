@@ -10,12 +10,12 @@ The other laboratories are in Beta version and are not available for now.
 
 Requirements
 ============
-To use this laboratory you have to count with:
--A knowledge of server and client side on linux systems (Raspbian), managing of packages repositories and development experience.
--A Robotic Arm connected to Arduino 
--A Raspberry Pi Model B (is not tested the recently Model B+, yet)
--An Arduino UNO R3 board
--A PC with Apache server intalled to use on client side
+To use this laboratory you have to count with:<br>
+-A knowledge of server and client side on linux systems (Raspbian), managing of packages repositories and development experience.<br>
+-A Robotic Arm connected to Arduino. <br>
+-A Raspberry Pi Model B (is not tested the recently Model B+, yet).<br>
+-An Arduino UNO R3 board.<br>
+-A PC with Apache server intalled to use on client side.<br>
 
 How works
 =========
