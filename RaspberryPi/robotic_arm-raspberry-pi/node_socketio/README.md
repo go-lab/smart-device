@@ -3,12 +3,12 @@ Content and services description
 This is the main folder of the system. The "robotic_arm" folder contents the main files for server and client side, needed to use this source code with the laboratory.
 Into this folder you can find:
 
-- Server side: 
-  The server side must be loaded into the Raspberry Pi OS (Raspbian).
-  Into the "js" folder you can find the server.js. This file contents the source code to:
-  1.- Open and manage the websocket channels to let the communication between client side and server side.
-  2.- Open the USB serial port to send the data received by websockets channels to Arduino UNO R3 board.
-  So, this file has the important mission fo translate the oreders of the users to the hardware laboratory.
+- Server side:<br> 
+  The server side must be loaded into the Raspberry Pi OS (Raspbian).<br>
+  Into the "js" folder you can find the server.js. This file contents the source code to:<br>
+  1.- Open and manage the websocket channels to let the communication between client side and server side.<br>
+  2.- Open the USB serial port to send the data received by websockets channels to Arduino UNO R3 board.<br>
+  So, this file has the important mission fo translate the oreders of the users to the hardware laboratory.<br>
 
 - Client side:
   The client side files must be loaded into the Apache server of the PC desktop.
