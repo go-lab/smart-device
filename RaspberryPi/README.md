@@ -6,7 +6,7 @@ The other labotories are in development phase so they are not available yet.
 
 Warning
 =======
-Please, follow the instructions of README and Wiki carefully and remember that every flavour of linux (Raspbian included) has its own caracteristichs.
+Please, follow the instructions of README and Wiki carefully and remember that every flavour of linux (Raspbian included) has its own characteristics.
 
 Disclaimer
 ==========
