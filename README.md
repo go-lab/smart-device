@@ -15,7 +15,7 @@ To use this laboratory you have to count with:<br>
 -A Robotic Arm connected to Arduino. <br>
 -A Raspberry Pi Model B (is not tested the recently Model B+, yet).<br>
 -An Arduino UNO R3 board.<br>
--A PC with Apache server intalled to use on client side.<br>
+-A PC with Apache server installed to use on client side.<br>
 
 How works
 =========
