@@ -1,7 +1,7 @@
 Content
 =======
 As you know the Arduino IDE compiles a folder with the same name of the source code file.
-You need to download both (the folder contente the *.*ino file) to let the Arduino IDE can upload the code into Arduino UNO R3 board.
+You need to download both (the folder content the *.*ino file) to let the Arduino IDE can upload the code into Arduino UNO R3 board.
 This folder content both of them.
 
 Description of the file
