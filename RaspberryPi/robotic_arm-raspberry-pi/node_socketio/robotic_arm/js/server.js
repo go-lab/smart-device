@@ -46,11 +46,11 @@ io.sockets.on('connection', function(socket) {
 	socket.setMaxListeners(0);
 	socket.on('clickon', function (value){
 	setTimeout(led ,100);
-	function led() {serialPort.write(“^”+value+”$”)};
+	function led() {serialPort.write(ï¿½^ï¿½+value+ï¿½$ï¿½)};
 	date = "Service position";
 	console.log('Status service: ', value);
 	});
-});
+
 
 socket.emit('dataled', date);
 console.log('Status: ', date);
