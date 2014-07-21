@@ -7,7 +7,7 @@ Here you can read a brief description of each one.
 The "arduino" folder
 ====================
 This folder content a subfolder contents the source code to load into Arduino UNO R3 board.
-Following the requirements of Arduino board you have to copy the sobfolder included into it to let the Arduino IDE can manage the source code (arduino.ino file) correctly.
+Following the requirements of Arduino board you have to copy the sobfolder included into it to let the Arduino IDE can manage the source code (robotic_arm.ino file) correctly.
 
 The "modules" folder
 ====================
