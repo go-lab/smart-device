@@ -17,5 +17,5 @@ This folder hacve these libraries displayed. So, if you have any problems to dow
 
 The "node_socketio" folder
 ==========================
-This folder content the source code of the server side and the client side (including the librearies needed to use bootstrap and slider theme of it) needed to use this laboratory.
+This folder content the source code of the server side and the client side (including the libraries needed to use bootstrap and slider theme of it) needed to use this laboratory.
 
