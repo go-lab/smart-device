@@ -50,7 +50,7 @@ io.sockets.on('connection', function(socket) {
 	date = "Servo angle";
 	console.log('Status angle: ', value);
 	});
-});
+
 
 socket.emit('dataled', date);
 console.log('Status: ', date);
