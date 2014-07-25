@@ -1,0 +1,17 @@
+/* app css stylesheet */
+
+body, html {
+    height: 100%;
+}
+
+.container {
+    margin: 10px 0px;
+}
+
+.pad-left{
+    padding-left: 20px
+}
+
+.pad-right{
+    padding-right: 20px
+}
