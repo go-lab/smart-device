@@ -3,7 +3,7 @@ Content
 This folder content the compilation used to the Robotic Arm Laboratory for the Raspberry Pi.
 This folder is included here because you can find on it the libraries needed to complement the Node.js server functions.
 Not all these libraries are needed (only the main libraries are), but the other one could be useful for other functions, interfaces, or communications methods on future developments.
-PLese, read more information and links about the main libraries on the Wiki: https://github.com/go-lab/smart-device/wiki/How-to-use-Node.js-and-Socket.io-labratories-with-Raspberry-Pi-and-Arduino#install-nodejs-socketsio-and-libraries-in-raspberry-pi
+Please, read more information and links about the main libraries on the Wiki: https://github.com/go-lab/smart-device/wiki/How-to-use-Node.js-and-Socket.io-labratories-with-Raspberry-Pi-and-Arduino#install-nodejs-socketsio-and-libraries-in-raspberry-pi
 
 Main libraries
 ==============
