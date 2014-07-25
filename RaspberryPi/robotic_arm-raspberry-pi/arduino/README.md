@@ -1,14 +1,16 @@
 Content
 =======
-As you know the Arduino IDE compiles a folder with the same name of the source code file.
-You need to download both (the folder content the *.*ino file) to let the Arduino IDE can upload the code into Arduino UNO R3 board.
-This folder content both of them.
+The Arduino IDE is an open-source Arduino environment which makes it easy to write code and upload it to the i/o board  (http://arduino.cc/en/pmwiki.php?n=main/software)
+
+The arduino IDE needs a folder to look for the .imo program. Therefore, you need to download (the folder named robotic_arm and the robotic_arm.ino file). Once they are downloaded your pc, you must use the Arduino IDE to upload the robotic_arm into Arduino UNO R3 board.
+
 
 Description of the file
 =======================
-The robotic_arm.ino is a source ode file that let control de Robotic Arm using Arduino UNO R3 board.
-The code lines use several algorithms that translate the orders received from Raspberry Pi into movings or actions on the different services of the Robotic Arm.
-The results are that, according to options on the client side, the user can move forward/backward, close/open, or turnon/off the respective service.
+The robotic_arm.ino is loaded to Arduino. It controls the Robotic Arm.
+
+The robotic_arm.ino translates the orders received from Raspberry Pi into phisical movements of Robotic Arm.
+
 
 Language
 ========
