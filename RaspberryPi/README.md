@@ -29,7 +29,7 @@ The other laboratories are in development phase so they are not available yet.<b
 
 Warning
 =======
-Please, follow the instructions of README and Wiki carefully and remembere that every flavour of linux (Raspbian included) has its own characteristics.<br>
+Please, follow the instructions of README and Wiki carefully and remember that every flavour of linux (Raspbian included) has its own characteristics.<br>
 
 Disclaimer
 ==========
