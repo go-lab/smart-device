@@ -29,7 +29,7 @@ Communication process
 =====================
 The structure of the communication process is:<br>
   0.- Node.js server is open and USB serial port with Arduino board is open.<br>
-  1.- User acceses to the client side loaded into Raspberry Pi (or into another external server as Apache server desktop PC), using a browser<br>
+  1.- User accesses to the client side loaded into Raspberry Pi (or into another external server as Apache server desktop PC), using a browser<br>
   2.- User selects the service and move the slider of the service to the desired position.<br>
   3.- User clicks on button to launch to the server the desired position.<br>
   4.- Server side into Rapsberry Pi received the petition of the client side and open a websocket channel to start the communication.<br>
