@@ -1,3 +1,5 @@
+Content and services description
+================================
 This is the main folder of the system. The "robotic_arm" folder contents the files for server and the files for the client side.<br>
 
 Note: you should change the IP and PORT from websocket of the files server.js and xxx.html.<br> 
