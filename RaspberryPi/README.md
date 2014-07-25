@@ -1,6 +1,6 @@
 Raspberry Pi-Arduino Laboratory (smart-device)
 ===============================================
-In this repository you can find the basic files needeed to built your own Raspberry Pi-Arduino laboratory using websockets.
+In this repository you can find the basic files needed to built your own Raspberry Pi-Arduino laboratory using websockets.
 To use this files you have to following previously the instructions into Wiki (https://github.com/go-lab/smart-device/wiki/How-to-use-Node.js-and-Socket.io-labratories-with-Raspberry-Pi-and-Arduino).
 
 Laboratories
