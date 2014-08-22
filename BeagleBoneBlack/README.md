@@ -1,0 +1,1 @@
+This directory gathers Smart Device implementations on BeagleBone Black
