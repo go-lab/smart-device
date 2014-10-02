@@ -14,11 +14,10 @@
 </head>
 
 <body>
-<h2 class="text-center">BBB Servo Web Client</h2>
+<h2 class="text-center">BBB Servo Control Lab</h2>
 <hr/>
 <section ng-controller="WebSocketController" class="text-center">
     <strong ng-bind-template="Server Response: {{message}}"></strong>
-    <br/>
 
     <div class="container">
         <strong class="pad-right">Servo</strong>
@@ -31,9 +30,9 @@
                data-slider-value="2500"
                data-slider-orientation="horizontal"
                data-slider-selection="after"
-               data-slider-tooltip="hide"/>
+               data-slider-tooltip="hide" />
         <strong class="pad-left" ng-bind='servoValue'></strong>
-    </div>
+    </div> 
 
 <div class="container">
     <button class="btn" ng-click="servoOn()">
@@ -41,6 +40,22 @@
     </button>
     <button class="btn btn-danger" ng-click="servoOff()">
         Servo OFF
+    </button>
+    <hr/>
+    <button class="btn" ng-click="getClients()">
+      getClients
+    </button>
+    <button class="btn" ng-click="getSensorData()">
+      getSensorData
+    </button>
+    <button class="btn" ng-click="getSensorMetadata()">
+      getSensorMetadaata
+    </button>
+    <button class="btn" ng-click="getActuatorMetadata()">
+      getActuatorMetadata
+    </button>
+    <button class="btn" ng-click="sendActuatorData()">
+      sendActuatorData
     </button>
 </div>
 </section>

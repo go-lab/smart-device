@@ -1,0 +1,10 @@
+{
+    "method": "getClients",
+    "clients":
+    [
+        {
+            "type": "Web Page",
+            "url": "http://iamac115.epfl.ch:8000/index.html"
+        }
+    ]
+}

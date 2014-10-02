@@ -9,9 +9,10 @@ function WebSocketController($scope) {
     var port = '8080';
 
     // Establish WebSocket connection with BBB.
-    var ws = new WebSocket('ws://' + host + ':' + port);
+    var ws= new WebSocket('ws://' + host + ':' + port);
 
-    // Receive incoming messages from the WS connection and display.
+
+    // Receive incoming messages from the WS connection with Lab and display.
     ws.onmessage = function (event) {
         $scope.$apply(function () {
             $scope.message = event.data;
@@ -39,4 +40,28 @@ function WebSocketController($scope) {
         ws.send('servoOff');
     };
 
+    // getClients on button click.
+    $scope.getClients = function () {
+        ws.send('getClients');
+    };
+
+    // Get Position button click.
+    $scope.getSensorData = function () {
+        ws.send('getSensorData');
+    };
+
+    //getSensorMetadata
+    $scope.getSensorMetadata = function () {
+        ws.send('getSensorMetadata');
+    };
+
+    //getActuatorMetadata
+    $scope.getActuatorMetadata = function () {
+        ws.send('getActuatorMetadata');
+    };
+
+    //sendActuatorData
+    $scope.sendActuatorData = function () {
+        ws.send('sendActuatorData');
+    };
 }

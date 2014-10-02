@@ -1,0 +1,34 @@
+/* WebSocket API: Send /client
+ * @param @class PublicRequest
+ * @returns @class ClientResponse
+ **/
+[
+//CALL:
+    {
+        "method": "getClients"
+    },
+
+
+//RETURN:
+    {
+        "method": "getClients",
+        "clients":
+            [
+                {
+                    "type": "OpenSocial gadget",
+                    "url": "http://servo.epfl.ch/client/s1.xml"
+                },
+                {
+                    "type": "OpenSocial gadget",
+                    "url": "http://servo.epfl.ch/client/s2.xml"
+                },
+                {
+                    "type": "OpenSocial gadget",
+                    "url": "http://servo.epfl.ch/client/a1.xml"
+                }
+            ]
+    }
+
+]
+
+
