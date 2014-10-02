@@ -1,13 +1,19 @@
+//modules
 var WebSocketServer = require('ws').Server;
+var jf = require('jsonfile');
+var moment = require('moment');
+var util = require('util');
+
+
+//javascript files
 var bbbPWM = require("./bbb-pwm");
-var json_getClients = require("../metadata/getClients.json");
-var json_getSensorMetadata = require("../metadata/getSensorMetadata.json");
-var json_getSensorData = require("../metadata/getSensorData.json");
-var json_getActuatorMetadata = require("../metadata/getActuatorMetadata.json");
-var json_sendActuatorData = require("../metadata/sendActuatorData.json");
 
-
-//DRAFT ((18/480000)*(bbbPWM.POSITION))
+//metadata files
+var json_getClients = "../metadata/getClients.json";
+var json_getSensorMetadata = "../metadata/getSensorMetadata.json";
+var json_getSensorData = "../metadata/getSensorData.json";
+var json_getActuatorMetadata = "../metadata/getActuatorMetadata.json";
+var json_sendActuatorData = "../metadata/sendActuatorData.json";
 
 // Instantiate WebSocket server for Lab
 var wss = new WebSocketServer({
@@ -21,10 +27,10 @@ var pwm = new bbbPWM('/sys/devices/ocp.2/pwm_test_P8_13.10/', 5000000);
 // Handle connections
 wss.on('connection', function(ws) {
 
-    // Send message to client that connection has been made.
-    ws.send('BBB WebSocket Server for Lab Connected!!!');
+    // Send message to client that connection has been made
+    ws.send('Lab Connected!!!');
 
-    // Handle incoming messages.
+    // Handle incoming messages
     ws.on('message', function(message) {
 
         // set run to 0.
@@ -39,27 +45,57 @@ wss.on('connection', function(ws) {
         }
         //send metadata: getClients
         else if (message == 'getClients'){
-            ws.send(JSON.stringify(json_getClients));
+            ws.send(util.inspect(jf.readFileSync(json_getClients)));
             }
         //send metadata: getSensorMetadata
         else if (message == 'getSensorMetadata'){
-                ws.send(JSON.stringify(json_getSensorMetadata));
+            ws.send(util.inspect(jf.readFileSync(json_getSensorMetadata)));
             }
         //send metadata: position
         else if (message == 'getSensorData'){
-            ws.send(JSON.stringify(json_getSensorData));
+            ws.send(util.inspect(jf.readFileSync(json_getSensorData)));
             }
         //send metadata: getActuatorMetadata
         else if (message == 'getActuatorMetadata'){
-            ws.send(JSON.stringify(json_getActuatorMetadata));
+            ws.send(util.inspect(jf.readFileSync(json_getActuatorMetadata)));
             }
         //send metadata: getActuatorData
         else if (message == 'sendActuatorData'){
-            ws.send(JSON.stringify(json_sendActuatorData));
+            ws.send(util.inspect(jf.readFileSync(json_sendActuatorData)));
+            }
+        //send metadata: getMetadata
+        else if (message == 'sendActuatorData'){
+            ws.send(util.inspect(jf.readFileSync(json_sendActuatorData)));
             }
         // set the duty cycle.
         else {
             pwm.setDuty(message);
+            var data = ((3/80000)*(bbbPWM.POSITION));
+            console.log("Saving new value to getSensorData and sendActuatorMetadata");
+            var date = moment();
+            var new_getSensorData = {
+                "method": "getSensorData",
+                "sensorId": "position",
+                "accessRole": "controller",
+                "responseData": {
+                    "valueNames": ["angularPosition"],
+                    "data": [data],
+                    "lastMeasured": [date]
+                    }
+                };
+            var new_sendActuatorData = {
+                "method": "sendActuatorData",
+                "lastMeasured": date,
+                "accessRole": "controller",
+                "payload": {
+                    "actuatorId": "ref",
+                    "valueNames": ["angularRef"],
+                    "data": [data]
+                    }
+                };
+            
+            jf.writeFile(json_getSensorData, new_getSensorData);
+            jf.writeFile(json_sendActuatorData, new_sendActuatorData);            
         }
     });
 
