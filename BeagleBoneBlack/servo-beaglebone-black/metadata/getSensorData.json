@@ -1,0 +1,10 @@
+{
+    "method": "getSensorData",
+    "sensorId": "position",
+    "accessRole": "controller",
+    "responseData": {
+        "valueNames": ["angularPosition"],
+        "data": [54],
+        "lastMeasured": ["2014-06-23T18:28:43.511Z"]
+    }
+}

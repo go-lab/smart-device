@@ -1,0 +1,25 @@
+{
+    "method": "getSensorMetadata",
+    "sensors": [
+        {
+            "sensorId": "servo",
+            "fullName": "shaftPosition",
+            "description": "Position of the servo motor's shaft",
+            "webSocketType": "text",
+            "singleWebSocketRecommended": true,
+            "produces": "application/json",
+            "values": [
+                {
+                    "name": "shaftPosition",
+                    "lastMeasured": "2014-06-23T18:28:43.617Z",
+                    "updateFrequency": 10
+                    }
+                ],
+                "accessMode": {
+                    "type": "push",
+                    "nominalUpdateInterval": 100,
+                    "userModifiableFrequency": false
+                    }
+        }
+    ]
+}
