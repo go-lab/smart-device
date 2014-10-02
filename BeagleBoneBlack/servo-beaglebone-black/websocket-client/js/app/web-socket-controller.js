@@ -4,8 +4,10 @@ function WebSocketController($scope) {
 
     $scope.servoValue = 1500;
 
-    // BBB IP on the network
-    var host = '192.168.7.2';
+    // BBB static IP on the network
+    var host = '169.254.116.187';
+    // BBB IP on local network
+    //var host = '192.168.7.2';
     var port = '8080';
 
     // Establish WebSocket connection with BBB.
