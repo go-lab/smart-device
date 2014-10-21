@@ -46,11 +46,11 @@ io.sockets.on('connection', function(socket) {
 	socket.setMaxListeners(0);
 	socket.on('clickon', function (value){
 	setTimeout(led ,100);
-	function led() {serialPort.write("^"+value+”$”)};
+	function led() {serialPort.write("^"+value+"$")};
 	date = "Servo angle";
 	console.log('Status color: ', value);
 	});
-});
+
 
 socket.emit('dataled', date);
 console.log('Status: ', date);
