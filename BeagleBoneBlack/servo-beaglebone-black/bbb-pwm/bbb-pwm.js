@@ -6,6 +6,7 @@ function bbbPWM(pwmPath, period) {
     bbbPWM.RUN_PATH = pwmPath + 'run';
     bbbPWM.DUTY_PATH = pwmPath + 'duty';
     bbbPWM.PERIOD_PATH = pwmPath + 'period';
+    bbbPWM.POSITION = 0;
     this.configureDevice();
 }
 
@@ -25,7 +26,8 @@ bbbPWM.prototype.writeFile = function (file, content) {
 
 bbbPWM.prototype.setDuty = function (duty) {
     try {
-        fs.writeFile(bbbPWM.DUTY_PATH, Math.floor(Number(duty) * 1000));
+        bbbPWM.POSITION = Math.floor(Number(duty) * 1000);
+        fs.writeFile(bbbPWM.DUTY_PATH, bbbPWM.POSITION );
     }
     catch (e) {
         console.log('setDuty error: ' + e);
