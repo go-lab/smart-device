@@ -25,11 +25,37 @@ Laboratories
 ============
 On this folder you can find the laboratories developed with Raspberry Pi and Arduino UNO board.<br>
 Currently you can use the Robotic Arm Laboratory downloading the files of the folder "robotic_arm-raspberry-pi".<br>
-The other laboratories are in development phase so they are not available yet.<br>
+The other laboratories are in development integration phase so they are not available yet.<br>
 
 Warning
 =======
 Please, follow the instructions of README and Wiki carefully and remember that every flavour of linux (Raspbian included) has its own characteristics.<br>
+
+About Robotic Arm laboratory and others "on integration development" laboratories with Raspberry Pi
+====================================================================================================
+The Robotic Arm laboratory was an existing laboratory developed for my doctoral Ph.D. Thesis that concluded with "Cum Laude" score, after several years of research, on UNED (Spanish University for Distance Education), Madrid, on 31th July 2014 with the SiLaRR suite (Integration System for Remote Robotics Laboratories) as results. This laboratory was developed by me as embebed example of integration using SiLaRR (as Led RGB laboratory was included, too). The tools used to this suite were HTTP protocol, Apache, PHP, Java, jQuery, C++, Arduino technology, among others under GPLv3 License.<br>
+When GoLab projects offers to me the opportunity of integrate my laboratory in its project I accept without doubt because it is a splendid oportunity to test the possibilities of spread my initial hardware/software development.<br>
+The challenges were:<br>
+-Adapt the hardware/software of the robotic equipment from the initial tools related to Websockets protocol with Socketi.io, Node.js, Bootstrap, Raspberry Pi, among others.<br> 
+-Doing it on that way that other owners of laboratories, as me, could integrate their laboratories on GoLab project using this code as reference and Raspberry Pi and Arduino as hardware tool.<br> 
+Finally the callenges were achieved. The objective to integrate an existing laboratory following the specficactions of D 4.1 and D 4.3 from GoLab project, was a success.<br>
+The original hardware and electronic schemes of the Robotic Arm laboratory were respected from SiLaRR, and even the Arduino source code it is the same without modifications and respecting the GPLv3 license. The environment was moved to the hardware related (Raspberry Pi) and to the new software/protocols related, too, with success.<br>
+A evidence of integration that invites to other owners of laboratories to use this code and my experience to integrate their new, or existing, laboratories into GoLab project.<br>
+
+Acknowledgements
+================
+-I acknowledgement to Go-Lab Global Online Science Labs for Inquiry Learning at School - FP7-ICT-2011-8 - Project number 317601, the possibility to integrate my laboratory as reference on it, specially to EPFL team for their advices, help and attentions during my stay with them on Lausanne.<br>
+-I acknowledgement to Techno-Museum: Discovering the ICTs for Humanity (IEEE Foundation Grant #2011-118LMF) and MUNCYT (Spanish Museum of Science and Technology) the opportunity to show to the public this laboratory as SiLaRR prototype.<br>
+-I acknowledgement to Colegio Karbo (A Corunna- Spain) to let me test using Robotic Arm and Led RGB laboratories and evaluating SiLaRR with its teachers and students during my Ph. D. research.<br>
+-I acknowledgement to DIEEC Department at UNED the advices and help during my research time while I developed SiLaRR system, specially to Manuel Castro as my mentor and to DIEEC Team and UNED university.<br> 
+
+Final notes
+===========
+-If you are an owner of a laboratory or you are interested in GoLab an you have any question about the integration of my laboratory, please, don't hesitate to send me and email/message (https://github.com/GermanCF) and I'll try to help you with your laboratory.<br>
+-I'll invite you as owner of a laboratory to take in contact with me, or GoLab, to following my steps to integrate your existing laboratory or to develop a new laboartory using this code repository.<br>
+-If you have any question about my SiLaRR System (Ph. D. Thesys with the original HTTP protocols, not websockets) or my hardware scheme of Robotic Arm, led RGB, or servo motor laboratories with Arduino, you can send me and email/message or go to my website to known more about them: https://sourceforge.net/projects/silarr/<br>
+
+Finally, as owner of a laboratory all of us want that our designs will be usefull for other people, Go-Lab project looks for this objective and can spread your development among thousand of Schools/Academic institutions around the world. Now you have this step more closer with this repostory. Think about it!.
 
 Disclaimer
 ==========

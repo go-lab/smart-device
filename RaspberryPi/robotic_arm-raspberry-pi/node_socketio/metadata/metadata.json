@@ -1,0 +1,662 @@
+{ 
+"apiVersion": "1.0.0",
+"swaggerVersion": "1.0",
+"basePath": "http://graasp.epfl.ch/#item=space_19178", 
+"info": 
+{ 
+"title": "Robotic Arm Lab smart device example", 
+"description": "This is an example implementation of the Go-Lab smart device in Raspberry Pi and demonstrates an mechatronics remote lab running at UNED", 
+"termsOfServiceUrl": "http://62.204.201.213/German/terms.html", 
+"contact": "gcarro@ieec.uned.es", 
+"license": "Apache 2.0", 
+"licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html" 
+}, 
+"authotizations": {},
+"concurrency":{
+	"interactionMode":"synchronous",
+	"concurrencyScheme":"roles",
+	"roleSelectionMechanism":["race", "fixed role"],
+	"roles":[
+		{
+			"role":"controller",
+			"selectionMechanism":["race"]
+		}
+		]
+},
+"apis": 
+[
+{ 
+"path": "/client", 
+"protocol": "WebSocket", 
+"produces": 
+[ 
+"application/json" 
+],
+"operations": 
+[
+{
+"method": "Send", 
+"nickname": "getClients", 
+"summary": "Return a list of all available clients", 
+"notes": "Returns a JSON array with all the available clients", 
+"type": "ClientResponse", 
+"parameters": 
+[ 
+{ 
+"name": "message", 
+"description": "the payload for the getClients service.", 
+"required": "true", 
+"paramType": "message", 
+"type": "SimpleRequest", 
+"allowMultiple": "false" 
+}
+],
+"authorizations": { }, 
+"responseMessages": 
+[
+{ "code": 401, "message": "Server is closed" }, 
+{ "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
+{ "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }
+]
+}
+]
+}, 
+{ "path": "/sensor/", "protocol": "WebSocket", "produces": 
+[ "application/json" ], 
+"operations": 
+[
+ { "method": "Send", "nickname": "getSensorMetadata", "summary": "List all sensors and their metadata", "type": "SensorMetadataResponse", "parameters": 
+[ 
+{ "name": "message", "description": "the payload for the getSensorMetadata service", "required": true, "paramType": "message", "type": "SimpleRequest", "allowMultiple": "false" 
+} 
+], 
+"responseMessages": 
+[
+{ "code": 401, "message": "Server is closed" }, 
+{ "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
+{ "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }
+                    ],
+                    "authorisations": {}
+                },
+                {
+                    "method": "Send",
+                    "nickname": "getSensorData",
+                    "summary": "Get data from the sensor with the given sensor identifier",
+                    "type": "SensorDataResponse",
+                    "parameters": [
+                        {
+                            "name": "message",
+                            "description": "The payload for the getSensorData service",
+                            "required": true,
+                            "type": "SensorDataRequest",
+                            "paramType": "message",
+                            "allowMultiple": false
+                        }
+                    ],
+                    "responseMessages": [
+{ "code": 401, "message": "Server is closed" }, 
+{ "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
+{ "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/actuator/",
+            "protocol": "WebSocket",
+            "produces": [
+                "application/json"
+            ],
+            "operations": [
+                {
+                    "method": "Send",
+                    "nickname": "getActuatorMetadata",
+                    "summary": "List all actuators and their metadata",
+                    "type": "ActuatorMetadataResponse",
+                    "parameters": [
+                        {
+                            "name": "message",
+                            "description": "the payload for the getActuatorMetadata service",
+                            "required": true,
+                            "paramType": "message",
+                            "type": "SimpleRequest",
+                            "allowMultiple": false
+                        }
+                    ],
+                    "responseMessages": [
+{ "code": 401, "message": "Server is closed" }, 
+{ "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
+{ "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }
+                    ],
+                    "authorizations": {}
+                },
+                {
+                    "method": "Send",
+                    "summary": "Send new data to the actuator with the given actuator identifier",
+                    "notes": "The parameters go into a JSON object send over the WebSocket",
+                    "type": "ActuatorDataResponse",
+                    "nickname": "sendActuatorData",
+                    "parameters": [
+                        {
+                            "name": "message",
+                            "description": "The payload for the sendActuatorData service",
+                            "required": true,
+                            "type": "ActuatorDataRequest",
+                            "paramType": "message",
+                            "allowMultiple": false
+                        }
+                    ],
+                    "responseMessages": [
+{ "code": 401, "message": "Server is closed" }, 
+{ "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
+{ "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }                  ]
+                }
+            ]
+        }
+        
+     ],
+    "models": {
+        "Client": {
+            "id": "Client",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The type of client application",
+                    "enum": [
+                        "OpenSocial Gadget",
+                        "W3C widget",
+                        "Web page",
+                        "Java WebStart",
+                        "Desktop application"
+                    ]
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URI where the client application resides"
+                }
+            }
+        },
+        "ClientResponse": {
+            "id": "ClientResponse",
+            "properties": {
+                "method": {
+                    "type": "string"
+                },
+                "clients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Client"
+                    }
+                }
+            }
+        },
+        "Sensor": {
+            "id": "Sensor",
+            "required": [
+                "sensorId", "fullName"
+            ],
+            "properties": {
+                "sensorId": {
+                    "type": "string"
+                },
+                "fullName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "webSocketType": {
+                    "type": "string",
+                    "description": "the type of WebSocket. WebSockets can either be binary or textual.",
+                    "enum": [
+                        "text",
+                        "binary"
+                    ],
+                    "defaultValue": "text"
+                },
+                "singleWebSocketRecommended": {
+                    "type": "boolean",
+                    "description": "If this field is set to true it means that the smart device expects that a client opens a dedicated websocket for to read from this value",
+                    "defaultValue": false
+                },
+                "produces": {
+                    "type": "string",
+                    "description": "The mime-type of the data that is produced by this sensor. A list of mime types can be found at http://en.wikipedia.org/wiki/Internet_media_type",
+                    "defaultValue": "application/json"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Value"
+                    }
+                },
+                "configuration": {
+                    "type": "array",
+                    "description": "The configuration consists of an array of JSON objects that consist of parameter and type",
+                    "items": {
+                        "$ref": "ConfigurationMetadataItem"
+                    }
+                },
+                "accessMode": {
+                    "type": "AccessMode"
+                }
+            }
+        },
+        "Value": {
+            "id": "Value",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "rangeMinimum": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "rangeMaximum": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "rangeStep": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "lastMeasured": {
+                    "type": "date-time"
+                },
+                "updateFrequency": {
+                    "type": "number",
+                    "description": "The frequency in Hertz of which the sensor value updates",
+                    "format": "int"
+                }
+            }
+        },
+        "ConfigurationMetadataItem": {
+            "id": "ConfigurationMetadataItem",
+            "required": [
+                "parameter", "type"
+            ],
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "description": "The name of the configuration parameter"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "This field can provide some more information on how this parameter should be used."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The data type of that this configuration parameters expects, e.g. number or string",
+                    "enum": [
+                        "integer",
+                        "long",
+                        "float",
+                        "double",
+                        "string",
+                        "byte",
+                        "boolean",
+                        "date",
+                        "dateTime",
+                        "object",           
+                        "array",
+                        "any",              
+                        "binary"            
+                    ]
+                },
+                "items": {
+                    "type": "string",
+                    "description": "This field should only be used when the type is 'array'. It describes which types are present within the array",
+                    "enum": [
+                        "integer",
+                        "long",
+                        "float",
+                        "double",
+                        "string",
+                        "byte",
+                        "boolean",
+                        "date",
+                        "dateTime",
+                        "object",           
+                        "any",              
+                        "binary"            
+                    ]
+                }
+            }
+        },
+        "AccessMode": {
+            "id": "AccessMode",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "push",
+                        "pull",
+                        "stream"
+                    ]
+                },
+                "nominalUpdateInterval": {
+                    "type": "number",
+                    "format": "float"
+                },
+		"nominalSlotInterval": {
+                    "type": "number",
+                    "format": "integer"
+                },
+		"userModificableSlot": {
+                    "type": "boolean",
+                    "defaultValue": false
+                },
+                "userModifiableFrequency": {
+                    "type": "boolean",
+                    "defaultValue": false
+                }
+            }
+        },
+        "SimpleRequest": {
+            "id": "SimpleRequest",
+            "required": [
+                "method"
+            ],
+            "properties": {
+                "authToken": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "The method should be equal to the nickname of one of the provided services."
+                }
+            }
+        },
+        "SensorMetadataResponse": {
+            "id": "SensorMetadataResponse",
+            "required": [
+                "method", "sensors"
+            ],
+            "properties": {
+                "method": {
+                    "type": "string",
+                    "description": "The method should be equal to the nickname of one of the provided services."
+                },
+                "sensors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Sensor"
+                    }
+                }
+            }
+        },
+        "SensorDataRequest": {
+            "id": "SensorDataRequest",
+            "required": [
+                "authToken", "method", "sensorId"
+            ],
+            "properties": {
+                "method": {
+                    "type": "string",
+                    "description": "The method should be equal to the nickname of one of the provided services."
+                },
+                "sensorId": {
+                    "type": "string"
+                },
+                "updateFrequency": {
+                    "type": "number",
+                    "description": "The frequency in Hertz of which the sensor value updates",
+                    "format": "int"
+                },
+                "configuration": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "ConfigurationItem"
+                    }
+                },
+                "accessRole": {
+                    "type": "string",
+                    "description": "This field contains one of the roles defined in the concurrency roles list. If accessRole is not defined, the controller role is assumed."
+                }
+            }
+        },
+        "ConfigurationItem": {
+            "id": "ConfigurationItem",
+            "required": [
+                "parameter", "value"
+            ],
+            "properties": {
+                "parameter": {
+                    "type": "string",
+                    "description": "The name of the configuration parameter"
+                },
+                "value": {
+                    "type": "any",          
+                    "description": "The value to set the configuration parameter to. The type should equal the type given in the metadata for this sensor."
+                }
+            }
+        },
+        "SensorDataResponse": {
+            "id": "SensorDataResponse",
+            "required": [
+                "method", "sensorId"
+            ],
+            "properties": {
+                "method": {
+                    "type": "string",
+                    "description": "The method should be equal to the nickname of one of the provided services."
+                },
+                "sensorId": {
+                    "type": "string"
+                },
+                "accessRole": {
+                    "type": "string",
+                    "description": "This field contains one of the roles defined in the concurrency roles list. If no roles are defined controller is returned. If the observer is returned, the observerMode field will be available with extra info on the status of the lab."
+                },
+                "responseData": {
+                    "type": "SensorResponseData",
+                    "description": "The data as measured by this sensor"
+                },
+                "payload": {
+                    "type": "any",
+                    "description": "This optional payload field can contain any JSON object that provides extra information on this sensor or the current measurement."
+                },
+                "observerMode": {
+                    "type": "ObserverMode",
+                    "description": "This field is only available if the accessRole field returns observer."
+                }
+            }
+        },
+        "SensorResponseData": {
+            "id": "SensorResponseData",
+            "required": [],
+            "properties": {
+                "valueNames": {
+                    "type": "array",
+                    "description": "An ordered array with all the value names of this sensor. The same order will be applied to the data array and lastMeasured array.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "data": {
+                    "type": "array",
+                    "description": "An ordered array with all the data values of this sensor. Each data element in the array should be ordered in the same position of its corresponding value elements in the values array.",
+                    "items": {
+                        "type": "any"           
+                    }
+                },
+                "lastMeasured": {
+                    "type": "array",
+                    "description": "An ordered array with all the data values of this sensor. Each data element in the array should be ordered in the same position of its corresponding value elements in the values array.",
+                    "items": {
+                        "type": "date-time"
+                    }
+                }
+            }
+        },
+        "Actuator": {
+            "id": "Actuator",
+            "required": [
+                "actuatorId", "fullName"
+            ],
+            "properties": {
+                "actuatorId": {
+                    "type": "string"
+                },
+                "fullName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "webSocketType": {
+                    "type": "string",
+                    "description": "the type of WebSocket. WebSockets can either be binary or textual.",
+                    "enum": [
+                        "text",
+                        "binary"
+                    ],
+                    "defaultValue": "text"
+                },
+                "singleWebSocketRecommended": {
+                    "type": "boolean",
+                    "description": "If this field is set to true it means that the smart device expects that a client opens a dedicated websocket for to read from this value",
+                    "defaultValue": false
+                },
+                "consumes": {
+                    "type": "string",
+                    "description": "The mime-type of the data that is consumed by this actuator. A list of mime types can be found at http://en.wikipedia.org/wiki/Internet_media_type",
+                    "defaultValue": "application/json"
+                },
+                "produces": {
+                    "type": "string",
+                    "description": "The mime-type of the data that is produced by this actuator. A list of mime types can be found at http://en.wikipedia.org/wiki/Internet_media_type",
+                    "defaultValue": "application/json"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Value"
+                    }
+                },
+                "configuration": {
+                    "type": "array",
+                    "description": "The configuration consists of an array of JSON objects that consist of parameter and type",
+                    "items": {
+                        "$ref": "ConfigurationMetadataItem"
+                    }
+                },
+                "accessMode": {
+                    "type": "AccessMode"
+                }
+            }
+        },
+        "ActuatorMetadataResponse": {
+            "id": "ActuatorMetadataResponse",
+            "required": [
+                "method", "actuators"
+            ],
+            "properties": {
+                "method": {
+                    "type": "string",
+                    "description": "The method should be equal to the nickname of one of the provided services."
+                },
+                "actuators": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Actuator"
+                    },
+                    "description": "The list of actuator metadata elements"
+                }
+            }
+        },
+        "ActuatorDataRequest": {
+            "id": "ActuatorDataRequest",
+            "required": [
+                "method", "actuatorId"
+            ],
+            "properties": {
+                "authToken": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "The method should be equal to the nickname of one of the provided services."
+                },
+                "actuatorId": {
+                    "type": "string"
+                },
+                "valueNames": {
+                    "type": "array",
+                    "description": "An ordered array with all the value names of this sensor. The same order will be applied to the data array and lastMeasured array.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "data": {
+                    "type": "array",
+                    "description": "An ordered array with all the data values of this sensor. Each data element in the array should be ordered in the same position of its corresponding value elements in the valueNames array.",
+                    "items": {
+                        "type": "any"           
+                    }
+                },
+                "configuration": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "ConfigurationItem"
+                    }
+                },
+                "accessRole": {
+                    "type": "string",
+                    "description": "This field contains one of the roles defined in the concurrency roles list. If accessRole is not defined the controller role is assumed."
+                }
+            }
+        },
+        "ActuatorDataResponse": {
+            "id": "ActuatorDataResponse",
+            "required": [
+                "method"
+            ],
+            "properties": {
+                "method": {
+                    "type": "string",
+                    "description": "The method should be equal to the nickname of one of the provided services."
+                },
+                "lastMeasured": {
+                    "type": "date-time"
+                },
+                "accessRole": {
+                    "type": "string",
+                    "description": "This field contains one of the roles defined in the concurrency roles list. If no roles are defined controller is returned. If the observer is returned, the observerMode field will be available with extra info on the status of the lab."
+                },
+                "payload": {
+                    "type": "any",
+                    "description": "The payload can be useful for describing a result that is returned, for instance by using the SensorResponseData model. Since results can differ from acknowledgements to result data, the field is optional and can contain any JSON object."
+                },
+                "observerMode": {
+                    "type": "ObserverMode",
+                    "description": "This field is only available if the accessRole field returns observer."
+                }
+            }
+        },
+        "ObserverMode": {
+            "id": "ObserverMode",
+            "required": [],
+            "properties": {
+                "queueSize": {
+                    "type": "integer",
+                    "description": "Provides the length of the user waiting queue that want to get control of the lab"
+                },
+                "queuePosition": {
+                    "type": "integer",
+                    "description": "Provides the position of the client who made this call in the user waiting queue. This value should be positive and smaller or equal to queueSize."
+                },
+                "estimatedTimeUntilControl": {
+                    "type": "integer",
+                    "description": "The estimated waiting time from now on until the client will get controllerMode access. The time is expressed in seconds."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,170 @@
+<html>
+<!--/**
+* Author: German Carro Fernandez
+* DIEEC, UNED
+*/ -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+		Raspberry Pi Robotic Arm with Arduino (base)
+</title>
+<script src="http://62.204.201.171:8015/socket.io/socket.io.js"></script>
+<script  type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+<script src="js/functions_websockets.js"></script>
+<script src="css/slider/js/bootstrap-slider.js"></script>
+<script src="css/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+<link href="css/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="css/slider/css/slider.css" rel="stylesheet">  
+<link href="css/slider/less/slider.less" rel="stylesheet">  
+
+<script>
+var value=0;
+$(document).ready(function() {
+$('#ex1').slider({
+formater:function (valuefin) {
+value=valuefin;
+return 'Current value: ' + valuefin;
+}
+});});	
+</script>
+<style>#ex1Slider .slider-selection {
+background: #BABABA;
+}
+</style>
+</head>
+<body>
+<?php
+error_reporting(0); 
+$url= "http://62.204.201.171:8015";
+$contents = file_get_contents($url); 
+$contents = utf8_encode($contents); 
+$results = json_decode($contents, true); 
+?>       
+<div align="center">
+	<button type="button" id="onoff_open" onclick="open_channel()">Open Websockets Channel</button>
+	<br><br>
+	<button type="button" id="onoff_close" onclick="close_channel()">Close Websockets Channel</button>
+	<br><br>
+	<button type="button" id="onoff" onclick="send_move()">Apply Service Base</button>
+	<br><br>
+	<br>
+	Left&nbsp&nbsp<input id="ex1" data-slider-id="ex1Slider" type="text" data-slider-min="-100" data-slider-max="100" data-slider-step="20" data-slider-value=<?php echo ($results);?>>&nbsp&nbspRight
+	<br><br>
+	<div style="display" id="warning" >
+	</div>
+	</div>
+</div>
+	<br>
+	
+<?php
+include_once("php/request_http.php");
+?>
+<div align= "left">
+	<font color="blue"><b>-----------------------------------------------------------------------------------------------------------------</b><br>
+	<b>JSON static file request using HTTP (whole file here: <a href="http://62.204.201.171:80" target="_blank">http://62.204.201.171:80</a>)</b><br>
+	<b>-----------------------------------------------------------------------------------------------------------------</b></font><br><br>
+	<button type="button" id="onoff_HTTP" onclick="send_fun_json_HTTP()"><b>Method HTTP Get request with PHP</b></button>
+	<br>
+	<div style="display:none" id="http_div">
+	<b>Get basic data (for example get whole "info" content using PHP) from static metadata.json:</b><br>
+	<div style="display" id="Test_header_HTTP" >
+	</div>
+	<br>
+	<br>
+	<b>Reading answer from Raspberry Pi JSON static file metadata.json:</b><br>
+	<div style="display" id="header_HTTP" >
+	</div>
+	</div>
+	<br>
+	<font color="blue"><b>-------------------------------------------------------------------------------</b><br>
+	<b>JSON streaming dinamic requests using Websockets</b><br>
+	<b>-------------------------------------------------------------------------------</b></font>
+	<br>
+	<br>
+	<div align= "left">
+	<button type="button" id="onoff" onclick="sendActuatorData()"><b>Method "sendActuatorData()"</b></button>
+	<div style="display:none" id="webs_sAD">
+	<br>
+	<input type="text" id="new_token" />
+	<b>Write here the new position of the slider (-100, -80, -60,-40, -20, 0, 20, 40, 60, 80, 100)</b>
+	<br>
+	<br>
+	<b>JSON streaming request sending to Raspberry Pi by websockets:</b><br>
+	<div style="display" id="Test_header" >
+	</div>
+	<br>
+	<br>
+	<b>JSON streaming answer from Raspberry Pi by websockets:</b><br>
+	<div style="display" id="header" >
+	</div>
+	<br>
+	<br>	
+---------------------------------------------------------------------------------------------
+	</div>
+	<br>
+	<br>
+	<div align= "left">
+	<button type="button" id="onoff0" onclick="getClients()"><b>Method "getClients()"</b></button>
+	<div style="display:none" id="webs_gC">
+	<br>
+	<b>JSON streaming request sending to Raspberry Pi by websockets:</b><br>
+	<div style="display" id="Test_header0" >
+	</div>
+	<br>
+	<br>
+	<b>JSON streaming answer from Raspberry Pi by websockets:</b><br>
+	<div style="display" id="header0" >
+	</div>
+	-----------------------------------------------------------------
+	</div>
+	<br>
+	<br>
+	<div align= "left">
+	<button type="button" id="onoff" onclick="getSensorMetadata()"><b>Method "getSensorMetaData()"</b></button>
+	<div style="display:none" id="webs_gSM">
+	<br>
+	<b>JSON streaming request sending to Raspberry Pi by websockets:</b><br>
+	<div style="display" id="Test_header00" >
+	</div>
+	<br>
+	<br>
+	<b>JSON streaming answer from Raspberry Pi by websockets:</b><br>
+	<div style="display" id="header00" >
+	</div>
+	-----------------------------------------------------------------
+	</div>
+	<br>
+	<br>
+	<div align= "left">
+	<button type="button" id="onoff" onclick="getActuatorMetadata()"><b>Method "getActuatorMetadata()"</b></button>
+	<div style="display:none" id="webs_gAM">
+	<br>
+	<b>JSON streaming request sending to Raspberry Pi by websockets:</b><br>
+	<div style="display" id="Test_header_met" >
+	</div>
+	<br>
+	<br>
+	<b>JSON streaming answer from Raspberry Pi by websockets:</b><br>
+	<div style="display" id="header_met" >
+	</div>
+	-----------------------------------------------------------------
+	</div>
+	<br>
+	<br>
+	<div align= "left">
+	<button type="button" id="onoff" onclick="getSensorData()"><b>Method "getSensorData()"</b></button>
+	<div style="display:none" id="webs_gSD">
+	<br>
+	<b>JSON streaming request sending to Raspberry Pi by websockets:</b><br>
+	<div style="display" id="Test_header_dat" >
+	</div>
+	<br>
+	<br>
+	<b>JSON streaming answer from Raspberry Pi by websockets:</b><br>
+	<div style="display" id="header_dat" >
+	</div>
+</div>
+</body>
+</html>

@@ -21,5 +21,3 @@ This folder provides the libraries that we have used in our development. So, if 
 The "node_socketio" folder
 ==========================
 This folder contains the source code of the server side and the client side (including the libraries needed to use bootstrap and slider theme of it) needed to use this laboratory.
-
-
