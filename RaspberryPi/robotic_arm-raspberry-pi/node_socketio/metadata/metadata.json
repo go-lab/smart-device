@@ -54,7 +54,7 @@
 "authorizations": { }, 
 "responseMessages": 
 [
-{ "code": 401, "message": "Server is closed" }, 
+{ "code": 401, "message": "Websocket Channel is closed" }, 
 { "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
 { "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }
 ]
@@ -72,7 +72,7 @@
 ], 
 "responseMessages": 
 [
-{ "code": 401, "message": "Server is closed" }, 
+{ "code": 401, "message": "Websocket Channel is closed" }, 
 { "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
 { "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }
                     ],
@@ -94,7 +94,7 @@
                         }
                     ],
                     "responseMessages": [
-{ "code": 401, "message": "Server is closed" }, 
+{ "code": 401, "message": "Websocket Channel is closed" }, 
 { "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
 { "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }
                     ]
@@ -124,7 +124,7 @@
                         }
                     ],
                     "responseMessages": [
-{ "code": 401, "message": "Server is closed" }, 
+{ "code": 401, "message": "Websocket Channel is closed" }, 
 { "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
 { "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }
                     ],
@@ -147,7 +147,7 @@
                         }
                     ],
                     "responseMessages": [
-{ "code": 401, "message": "Server is closed" }, 
+{ "code": 401, "message": "Websocket Channel is closed" }, 
 { "code": 402, "message": "Too many users. Only one client is allowed. The channel is yet busy" }, 
 { "code": 403, "message": "Method not allowed. The requested method is not allowed with this value." }                  ]
                 }

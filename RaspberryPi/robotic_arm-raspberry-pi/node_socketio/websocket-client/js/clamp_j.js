@@ -62,7 +62,7 @@
 	}
 	movpas_w=parseInt($("#ex1").val());
 	
-	if (socket==null) {document.getElementById('warning').innerHTML = '<div>'+'Error 401 Server is closed'+ '<br></div>';}
+	if (socket==io.connect()) {document.getElementById('warning').innerHTML = '<div>'+'Error 401: Websocket Channel is closed'+ '<br></div>';} else {document.getElementById('warning').innerHTML = '<div>'+''+ '<br></div>';}
 	
 	socket.on('func_json3', function (answer_json) {
 			socket.emit('get_request_auto', movact_w);
@@ -150,7 +150,7 @@
 '}';
 	cierre_funct='}';
 	
-	if (socket==null) {document.getElementById('warning').innerHTML = '<div>'+'Error 401: Server is closed.'+ '<br></div>';}
+	if (socket==io.connect()) {document.getElementById('warning').innerHTML = '<div>'+'Error 401: Websocket Channel is closed'+ '<br></div>';} else {document.getElementById('warning').innerHTML = '<div>'+''+ '<br></div>';}
 	
 	socket.on('func_json3', function (answer_json) {
 			socket.emit('get_request_manual', cabecera_funct + cierre_funct, token);
