@@ -68,7 +68,7 @@ Features of this version
 -Button to close websocket channel. Enable again the open websockets button.<br>
 -Managing of max users connected. Due the type of laboratory only one client can be connected at same time, so if the laboratory es busy the client received a "Error 402" warning of it and blocking the button to open websocket channel until the laboratory be free.<br>
 -Manage of "Errors":<br>
-Error 401: "Websocket Channel is closed." This error is launched when the websocket channel is closed and the connection is not possible.<br> 
+Error 401: "Server is closed." This error is launched when the websocket channel is closed and the connection is not possible.<br> 
 Error 402: "Too many users. Only one client is allowed. The channel is yet busy." This error is launched when de channel is busy for this actuator.<br>
 Error 403: "Method not allowed. The requested method is not allowed with this value." This error is launched when the slots use on "sendActuatorData()" are out of range.<br>
 -Option to use the slider (automatic method), or enter the new position using "sendActuatorData()" function (manual method).<br>
