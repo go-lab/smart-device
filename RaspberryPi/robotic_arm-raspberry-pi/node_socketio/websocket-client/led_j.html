@@ -50,7 +50,7 @@ $results = json_decode($contents, true);
 	<button type="button" id="onoff" onclick="send_move()">Apply Service Led</button>
 	<br><br>
 	<br>
-	Left&nbsp&nbsp<input id="ex1" data-slider-id="ex1Slider" type="text" data-slider-min="-100" data-slider-max="100" data-slider-step="20" data-slider-value=<?php echo ($results);?>>&nbsp&nbspRight
+	Turn off&nbsp&nbsp<input id="ex1" data-slider-id="ex1Slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="100" data-slider-value=<?php echo ($results);?>>&nbsp&nbspTurn on
 	<br><br>
 	<div style="display" id="warning" >
 	</div>
