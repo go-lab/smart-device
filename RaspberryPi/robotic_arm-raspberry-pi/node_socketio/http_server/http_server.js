@@ -4,10 +4,10 @@
 */
 var http = require('http');
 var fs = require('fs');
-var file =__dirname + '/metadata/metadata.json';
+var file =__dirname + '/../metadata/metadata.json';
 http.createServer(function (req,res){
 	res.writeHead(200, {'Content-Type': 'text/plain'});
-	fs.readFile(__dirname+'/metadata.json', function(err, data) {
+	fs.readFile(__dirname+'/../metadata/metadata.json', function(err, data) {
        if (err) {
 
             console.log(err);
