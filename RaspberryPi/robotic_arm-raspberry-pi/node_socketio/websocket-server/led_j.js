@@ -123,7 +123,7 @@ io.sockets.on('connection', function(socket) {
 	if (act_pos1=='null'){act_pos1=from_value};
 	new_value=act_pos1;
 	if (act_pos1>-101 && act_pos1!=from_value){
-	mov1=((new_value-from_value)/20);
+	mov1=((new_value-from_value)/100);
 	//Launching movement to Arduino using USB port
 	if (mov1>0 && act_pos1!=from_value){
 	for (i_mov1=0; i_mov1<mov1; i_mov1++){
@@ -148,7 +148,7 @@ io.sockets.on('connection', function(socket) {
 	if (act_pos1=='null'){act_pos1=from_value};
 	new_value=act_pos1;
 	if (act_pos1>-101 && act_pos1!=from_value){
-	mov1=((new_value-from_value)/20);
+	mov1=((new_value-from_value)/100);
 	if (mov1>0 && act_pos1!=from_value){
 	for (i_mov1=0; i_mov1<mov1; i_mov1++){
 	serialPort.write("^"+value_mov1+"$")
