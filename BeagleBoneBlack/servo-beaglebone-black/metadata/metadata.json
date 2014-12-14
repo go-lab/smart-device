@@ -1,7 +1,7 @@
 {
     "apiVersion": "2.0.0",
     "swaggerVersion": "1.2",
-    "basePath": "http://iamac115.epfl.ch:8000",
+    "basePath": "http://128.178.5.173:8000",
     "info": {
         "title": "Servo Motor Control",
         "description": "Control the position of a servo motor's shaft",

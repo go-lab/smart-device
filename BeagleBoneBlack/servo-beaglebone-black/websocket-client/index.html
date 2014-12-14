@@ -33,6 +33,19 @@
                data-slider-tooltip="hide" />
         <strong class="pad-left" ng-bind='servoValue'></strong>
     </div> 
+    
+<img id="img" src="http://128.178.5.183/image.jpg?cidx=2005906637" border="0">
+<script>
+window.onload = function() {
+    setInterval(updateImage, 500);
+}
+
+var image = document.getElementById("img");
+
+function updateImage() {
+    image.src = image.src.split("?")[0] + "?" + new Date().getTime();
+}
+</script>
 
 <div class="container">
     <button class="btn" ng-click="servoOn()">

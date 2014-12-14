@@ -3,8 +3,7 @@
 var util = require('util'),
     http = require('http'),
     fs = require('fs'),
-    url = require('url'),
-    events = require('events');
+    url = require('url');
 
 var DEFAULT_PORT = 8000;
 
@@ -41,7 +40,7 @@ function HttpServer(handlers) {
 HttpServer.prototype.start = function(port) {
   this.port = port;
   this.server.listen(port);
-  util.puts('Http Server running at http://localhost:' + port + '/');
+  util.puts('Http Server running at http://128.178.5.173:' + port + '/');
 };
 
 HttpServer.prototype.parseUrl_ = function(urlString) {
