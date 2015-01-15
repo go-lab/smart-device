@@ -1,0 +1,26 @@
+{
+    "method": "getActuatorMetadata",
+    "actuators": [
+        {
+            "actuatorId": "fan",
+            "fullName": "fan_power",
+            "description": "Turns ON/OFF the fan",
+            "webSocketType": "text",
+            "produces": "application/json",
+            "consumes": "application/json",
+            "values": [
+                {
+                    "name": "powerStatus",
+                    "unit": "binary boolean",
+                    "rangeMinimum": 0,
+                    "rangeMaximum": 1
+                }
+            ],
+            "accessMode": {
+                "type": "push",
+                "nominalUpdateInterval": "NaN",
+                "userModifiableFrequency": "NaN"
+            }
+        }
+    ]
+}

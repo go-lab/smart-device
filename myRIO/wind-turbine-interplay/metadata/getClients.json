@@ -1,0 +1,9 @@
+{
+    "method": "getClients",
+    "clients": [
+        {
+            "type": "OpenSocialWidget",
+            "url": "http://graasp.epfl.ch/go-lab/wind-turbine/gadget.xml"
+        }
+    ]
+}

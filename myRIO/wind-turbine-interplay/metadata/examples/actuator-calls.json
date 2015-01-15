@@ -1,0 +1,70 @@
+/* WebSocket API: /actuator
+ *  returns:
+ * */
+[
+/**
+ * getActuators
+ * @param @class SimpleRequest
+ * @return array @class Actuator
+ */
+//CALL:
+    {
+        "method": "getActuatorMetadata"
+    },
+
+
+//RETURN:
+    {
+        "method": "getActuatorMetadata",
+        "actuators": [
+        {
+            "actuatorId": "fan",
+            "fullName": "fan_power",
+            "description": "Turns ON/OFF the fan",
+            "webSocketType": "text",
+            "produces": "application/json",
+            "consumes": "application/json",
+            "values": [
+                {
+                    "name": "powerStatus",
+                    "unit": "binary boolean",
+                    "rangeMinimum": 0,
+                    "rangeMaximum": 1
+                }
+            ],
+            "accessMode": {
+                "type": "push",
+                "nominalUpdateInterval": "NaN",
+                "userModifiableFrequency": "NaN"
+            }
+        }
+        ]
+    },
+
+/**
+ *  sendActuatorData
+ *  @param @class ActuatorDataRequest
+ *  @return @class ActuatorDataResponse
+ **/
+//CALL:
+    {
+        "method": "sendActuatorData",
+        "accessRole": "controller",
+        "actuatorId": "fan",
+        "valueNames": ["powerStatus"],
+        "data": [0]
+    },
+
+//RETURN:
+    {
+        "method": "sendActuatorData",
+        "lastMeasured": "2014-06-23T20:25:43.741Z",
+        "accessRole": "controller",
+        "payload": {
+            /* could be useful for returning a result, but payload is optional */
+            "actuatorId": "fan",
+            "valueNames": ["powerStatus"],
+            "data": [0]
+        }
+    }
+]

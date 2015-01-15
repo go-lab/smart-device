@@ -1,0 +1,85 @@
+/* WebSocket API: /sensor
+ *  returns:
+ * */
+[
+/**
+ * getSensorMetadata
+ * @param @class SimpleRequest
+ * @return @class SensorMetadataResponse
+ */
+//CALL:
+    {
+        "method": "getSensorMetadata"
+    },
+
+//RETURN:
+    {
+        "method": "getSensorMetadata",
+        "sensors": [
+            {
+            "sensorId": "voltage",
+            "fullName": "generatedVoltage",
+            "description": "DC value of generated AC voltage",
+            "webSocketType": "text",
+            "singleWebSocketRecommended": true,
+            "produces": "application/json",
+            "values": [
+                {
+                    "name": "generatedVoltage",
+                    "lastMeasured": "2014-06-23T18:28:43.617Z",
+                    "updateFrequency": 10
+                }
+            ],
+            "accessMode": {
+                "type": "push",
+                "nominalUpdateInterval": 100,
+                "userModifiableFrequency": false
+            }
+        },
+        {
+            "sensorId": "rpm",
+            "fullName": "spinningRPM",
+            "description": "Spinning RPM of the wind mill",
+            "webSocketType": "text",
+            "singleWebSocketRecommended": true,
+            "produces": "application/json",
+            "values": [
+                {
+                    "name": "spinningRPM",
+                    "lastMeasured": "2014-06-23T18:28:43.617Z",
+                    "updateFrequency": 10
+                }
+            ],
+            "accessMode": {
+                "type": "push",
+                "nominalUpdateInterval": 100,
+                "userModifiableFrequency": false
+            }
+        }
+        ]
+    },
+
+/**
+ *  getSensorData
+ *  @param @class SensorDataRequest
+ *  @return @class SensorDataResponse
+ **/
+//CALL: example for getting generated voltage
+    {
+        "method": "getSensorData",
+        "sensorId": "voltage",
+        "accessRole": "controller"
+    },
+
+//RETURN: example for getting generated voltage
+    {
+        "method": "getSensorData",
+        "sensorId": "voltage",
+        "accessRole": "controller",
+        "responseData": {
+            "valueNames": ["generatedVoltage"],
+            "data": [2],
+            "lastMeasured": ["2014-06-23T18:28:43.511Z"]
+        }
+    }
+]
