@@ -1,0 +1,26 @@
+/* WebSocket API: Send /client
+ * @param @class PublicRequest
+ * @returns @class ClientResponse
+ **/
+[
+//CALL:
+    {
+        "method": "getClients"
+    },
+
+
+//RETURN:
+    {
+        "method": "getClients",
+        "clients":
+            [
+                {
+                    "type": "OpenSocial gadget",
+                    "url": "http://graasp.epfl.ch/go-lab/wind-turbine/gadget.xml"
+                }
+            ]
+    }
+
+]
+
+
