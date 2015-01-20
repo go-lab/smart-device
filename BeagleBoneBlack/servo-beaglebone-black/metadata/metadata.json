@@ -322,6 +322,25 @@
                 "unit": {
                     "type": "string"
                 },
+                "type": {
+                    "type": "string",
+                    "description": "The data type of this value",
+                    "enum": [
+                        "integer",
+                        "long",
+                        "float",
+                        "double",
+                        "string",
+                        "byte",
+                        "boolean",
+                        "date",
+                        "dateTime",
+                        "object",
+                        "array",
+                        "any",
+                        "binary"
+                    ]
+                },
                 "rangeMinimum": {
                     "type": "number",
                     "format": "double"
