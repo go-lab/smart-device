@@ -12,6 +12,7 @@
                     {
                         "name": "angularRef",
                         "unit": "degree",
+                        "type": "double",
                         "rangeMinimum": 0,
                         "rangeMaximum": 180
                     }

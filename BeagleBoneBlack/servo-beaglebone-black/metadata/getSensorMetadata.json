@@ -11,6 +11,7 @@
             "values": [
                 {
                     "name": "shaftPosition",
+                    "type": "string",
                     "lastMeasured": "2014-06-23T18:28:43.617Z",
                     "updateFrequency": 10
                     }
