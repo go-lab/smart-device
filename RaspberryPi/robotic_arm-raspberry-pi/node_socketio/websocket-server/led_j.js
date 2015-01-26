@@ -202,6 +202,7 @@ getActuatorMetadata_json='{"method": "getActuatorMetadata",'+
 '                "values": ['+
 '                    {'+
 '                        "name": "realRef",'+
+'                        "type": "integer",'+
 '                        "unit": "slot",'+
 '                        "rangeMinimum": 0,'+
 '                        "rangeMaximum": 100'+
@@ -237,6 +238,7 @@ getSensorMetadata_json= '{"method": "getSensorMetadata",'+
 '                "values": ['+
 '                    {'+
 '                        "name": "realStatus",'+
+'                        "type": "integer",'+
 '                        "unit": "slot",'+
 '                        "lastMeasured": "'+current_hour+":"+current_min+":"+current_second+", "+current_day+"-"+current_month+"-"+current_year+'",'+
 '                        "rangeMinimum": 0,'+
@@ -260,6 +262,7 @@ getSensorMetadata_json= '{"method": "getSensorMetadata",'+
 '                "values": ['+
 '                    {'+
 '                        "name": "video",'+
+'                        "type": "integer",'+
 '                        "lastMeasured": "'+current_hour+":"+current_min+":"+current_second+", "+current_day+"-"+current_month+"-"+current_year+'",'+
 '                        "updateFrequency": 10'+
 '                    }'+

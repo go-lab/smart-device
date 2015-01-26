@@ -225,7 +225,7 @@
                     "defaultValue": "application/json"
                 },
                 "values": {
-                    "type": "array",
+                    "type": "string",
                     "items": {
                         "$ref": "Value"
                     }
@@ -535,7 +535,7 @@
                     "defaultValue": "application/json"
                 },
                 "values": {
-                    "type": "array",
+                    "type": "string",
                     "items": {
                         "$ref": "Value"
                     }
