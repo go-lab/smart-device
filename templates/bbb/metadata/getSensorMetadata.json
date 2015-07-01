@@ -1,0 +1,26 @@
+{
+    "method": "getSensorMetadata",
+    "sensors": [
+        {
+            "sensorId": "",
+            "fullName": "",
+            "description": "",
+            "webSocketType": "",
+            "singleWebSocketRecommended": true,
+            "produces": "",
+            "values": [
+                {
+                    "name": "",
+                    "type": "",
+                    "lastMeasured": "",
+                    "updateFrequency": 0
+                    }
+                ],
+                "accessMode": {
+                    "type": "",
+                    "nominalUpdateInterval": 0,
+                    "userModifiableFrequency": true
+                    }
+        }
+    ]
+}

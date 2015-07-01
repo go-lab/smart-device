@@ -1,0 +1,10 @@
+{
+    "method": "sendActuatorData",
+    "lastMeasured": "",
+    "accessRole": "",
+    "payload": {
+        "actuatorId": "",
+        "valueNames": [""],
+        "data": []
+        }
+}
