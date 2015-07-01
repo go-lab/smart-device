@@ -1,0 +1,27 @@
+{
+        "method": "getActuatorMetadata",
+        "actuators": [
+            {
+                "actuatorId": "",
+                "fullName": "",
+                "description": "",
+                "webSocketType": "",
+                "produces": "",
+                "consumes": "",
+                "values": [
+                    {
+                        "name": "",
+                        "unit": "",
+                        "type": "",
+                        "rangeMinimum": 0,
+                        "rangeMaximum": 0
+                    }
+                ],
+                "accessMode": {
+                    "type": "",
+                    "nominalUpdateInterval": 0,
+                    "userModifiableFrequency": true
+                }
+            }
+        ]
+}

@@ -1,0 +1,10 @@
+{
+    "method": "getSensorData",
+    "sensorId": "",
+    "accessRole": "",
+    "responseData": {
+        "valueNames": [""],
+        "data": [],
+        "lastMeasured": [""]
+    }
+}

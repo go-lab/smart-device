@@ -1,0 +1,10 @@
+{
+    "method": "getClients",
+    "clients":
+    [
+        {
+            "type": "",
+            "url": ""
+        }
+    ]
+}
