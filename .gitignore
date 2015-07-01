@@ -1,1 +1,10 @@
-.DS_Store
+*.DS_Store
+
+# Ignore only folders inside node_modules
+# files like helper.js/test_helper.js/etc get into repo
+node_modules/*/
+BeagleBoneBlack/servo-beaglebone-black/bbb-pwm/node_modules/*/
+
+# Exclude logs
+*.log.DS_Store
+*.log
