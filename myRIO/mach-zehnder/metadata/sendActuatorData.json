@@ -1,0 +1,10 @@
+{
+    "method": "sendActuatorData",
+    "lastMeasured": "2015-06-23T20:25:43.741Z",
+    "accessRole": "controller",
+    "payload": {
+        "actuatorId": "laser",
+        "valueNames": ["laserPower"],
+        "data": [0]
+        }
+}

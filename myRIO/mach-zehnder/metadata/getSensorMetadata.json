@@ -1,0 +1,47 @@
+{
+    "method": "getSensorMetadata",
+    "sensors": [
+        {
+            "sensorId": "laser",
+            "fullName": "laserPower",
+            "description": "Laser is ON or OFF",
+            "webSocketType": "text",
+            "singleWebSocketRecommended": true,
+            "produces": "application/json",
+            "values": [
+                {
+                    "name": "laserPower",
+                    "type": "string",
+                    "lastMeasured": "2015-06-23T18:28:43.617Z",
+                    "updateFrequency": 100
+                    }
+                ],
+                "accessMode": {
+                    "type": "push",
+                    "nominalUpdateInterval": 100,
+                    "userModifiableFrequency": false
+                    }
+        },
+                {
+            "sensorId": "sensor2",
+            "fullName": "sensor2",
+            "description": "Sensed data on sensor2",
+            "webSocketType": "text",
+            "singleWebSocketRecommended": true,
+            "produces": "application/json",
+            "values": [
+                {
+                    "name": "sensor2",
+                    "type": "string",
+                    "lastMeasured": "2015-06-23T18:28:43.617Z",
+                    "updateFrequency": 100
+                    }
+                ],
+                "accessMode": {
+                    "type": "push",
+                    "nominalUpdateInterval": 100,
+                    "userModifiableFrequency": false
+                    }
+        }
+    ]
+}

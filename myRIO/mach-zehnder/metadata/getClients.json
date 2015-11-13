@@ -1,0 +1,10 @@
+{
+    "method": "getClients",
+    "clients":
+    [
+        {
+            "type": "Web Page",
+            "url": "http://shindig2.epfl.ch/machzehnder.html"
+        }
+    ]
+}
