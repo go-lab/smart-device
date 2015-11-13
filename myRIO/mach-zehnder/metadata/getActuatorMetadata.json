@@ -1,0 +1,49 @@
+{
+        "method": "getActuatorMetadata",
+        "actuators": [
+            {
+                "actuatorId": "laserPower",
+                "fullName": "laserPower",
+                "description": "Turns the laser ON or OFF",
+                "webSocketType": "text",
+                "produces": "application/json",
+                "consumes": "application/json",
+                "values": [
+                    {
+                        "name": "laserPower",
+                        "unit": "none",
+                        "type": "boolean",
+                        "rangeMinimum": 0,
+                        "rangeMaximum": 1
+                    }
+                ],
+                "accessMode": {
+                    "type": "push",
+                    "nominalUpdateInterval": 100,
+                    "userModifiableFrequency": false
+                }
+            },
+                        {
+                "actuatorId": "actuator2",
+                "fullName": "actuator2",
+                "description": "Function of actuator2",
+                "webSocketType": "text",
+                "produces": "application/json",
+                "consumes": "application/json",
+                "values": [
+                    {
+                        "name": "actuator2",
+                        "unit": "none",
+                        "type": "boolean",
+                        "rangeMinimum": 0,
+                        "rangeMaximum": 1
+                    }
+                ],
+                "accessMode": {
+                    "type": "push",
+                    "nominalUpdateInterval": 100,
+                    "userModifiableFrequency": false
+                }
+            }
+        ]
+}
