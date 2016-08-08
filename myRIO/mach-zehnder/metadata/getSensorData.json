@@ -1,9 +1,9 @@
 {
     "method": "getSensorData",
-    "sensorId": "laserPower",
+    "sensorId": "photo_diode",
     "accessRole": "controller",
     "responseData": {
-        "valueNames": ["laserPower"],
+        "valueNames": ["photoDiode"],
         "data": [0],
         "lastMeasured": ["2015-06-23T18:28:43.511Z"]
     }
