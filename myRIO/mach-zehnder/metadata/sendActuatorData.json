@@ -2,9 +2,26 @@
     "method": "sendActuatorData",
     "lastMeasured": "2015-06-23T20:25:43.741Z",
     "accessRole": "controller",
-    "payload": {
-        "actuatorId": "laser",
+    "payload": [
+    	{
+        "actuatorId": "laser_power",
         "valueNames": ["laserPower"],
         "data": [0]
+        },
+        {
+        "actuatorId": "beam_splitter0",
+        "valueNames": ["beamSplitter0"],
+        "data": [0]
+        },
+        {
+        "actuatorId": "beam_splitter1",
+        "valueNames": ["beamSplitter1"],
+        "data": [0]
+        },
+        {
+        "actuatorId": "piezo_actuator",
+        "valueNames": ["piezoActuator"],
+        "data": [0]
         }
+    ]
 }

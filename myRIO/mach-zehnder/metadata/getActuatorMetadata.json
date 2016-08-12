@@ -54,7 +54,7 @@
                 "consumes": "application/json",
                 "values": [
                     {
-                        "name": "beamSplitter0",
+                        "name": "beamSplitter1",
                         "unit": "none",
                         "type": "float",
                         "rangeMinimum": 0,
